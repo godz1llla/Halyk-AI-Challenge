@@ -1,0 +1,10 @@
+{
+  "_comment": "Обогащение P1 (Aktau Port Services JSC, ACC-7801). Извлечено вручную из документов; позже это будет выход LLM-слоя. Пока заполнена только часть для связанных сторон (ковенант 6.3) как proof-of-concept движка. Категории транзакций для 6.1/6.2 и курсы EUR — из аудиторского отчёта, добавляются на следующем шаге.",
+  "related_parties": ["Aktau Holdings"],
+  "_related_parties_source": "KYC-досье 2dd8671ac405: доля Группы >=20%. Aktau Holdings LLP 34.5% (связанная). Kaspi Marine 18.7% и Ural Crane 6.2% — НЕ связанные (ловушка).",
+  "categories": {},
+  "reclassifications": {},
+  "amount_overrides": {},
+  "scalars": {},
+  "evidence": {"6.1": null, "6.2": null, "6.3": null}
+}

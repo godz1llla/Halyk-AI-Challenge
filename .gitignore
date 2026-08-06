@@ -1,0 +1,6 @@
+.DS_Store
+__pycache__/
+*.pyc
+
+# Датасет от организаторов (вход, не наш код). Содержит ground_truth.json — ключ ответов.
+agentic-bank-public/

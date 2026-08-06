@@ -1,0 +1,127 @@
+{
+  "_comment": "Спецификации ковенантов, извлечённые из ДЕЙСТВУЮЩИХ кредитных договоров (устаревшие редакции 2024 г. исключены). Каждый заёмщик имеет 3 ковенанта с УНИКАЛЬНЫМИ определениями. Поля: kind — тип теста; threshold — порог; direction — min (BREACH если actual<threshold) | max (BREACH если actual>threshold); metric — определение показателя через категории транзакций; source_doc — хеш действующего договора. Категории транзакций (revenue/opex/capex/rent/payroll/utilities/taxes/interest/insurance/financing_inflows/related_party) и переклассификации/курсы валют поставляет слой извлечения (LLM или ручной), см. cache/.",
+  "period": {"start": "2025-01-01", "end": "2025-12-31"},
+  "scenarios": {
+    "B1": {
+      "borrower": "Ekibastuz Energy JSC", "account": "ACC-7201", "source_doc": "b38facf69a94",
+      "6.1": {"title": "Minimum Interest Coverage Ratio", "kind": "ratio", "direction": "min", "threshold": 2.00,
+              "metric": {"numerator": ["revenue", "-opex"], "denominator": ["interest"]},
+              "note": "ICR = EBITDA/Проценты, EBITDA=Выручка-Опекс. Учесть переквалификацию затрат в проценты (аудитор)."},
+      "6.2": {"title": "Individual Overhead Line Ceiling", "kind": "max_single_line", "direction": "max", "threshold": 1500000.00,
+              "metric": {"lines": ["payroll", "utilities"]},
+              "note": "actual = наибольшая из (payroll, utilities) по отдельности; сумма не показатель."},
+      "6.3": {"title": "Maximum Related-Party Payments", "kind": "related_party_abs", "direction": "max", "threshold": 500000.00,
+              "metric": {"category": "related_party"}, "note": "связанные стороны по комплаенс-досье"}
+    },
+    "B4": {
+      "borrower": "Shymkent Refinery JSC", "account": "ACC-7204", "source_doc": "bc5451f75caf",
+      "6.1": {"title": "Minimum Q4 Revenue", "kind": "aggregate_min", "direction": "min", "threshold": 3500000.00,
+              "metric": {"category": "revenue", "period_filter": "Q4"},
+              "note": "только выручка, признанная в Q4; учесть корректировки по методу начисления/переквалификацию периода (аудитор)."},
+      "6.2": {"title": "Maximum Category Expenditure (Capex)", "kind": "aggregate_max", "direction": "max", "threshold": 2000000.00,
+              "metric": {"category": "capex"}, "note": "capex с учётом реклассификаций аудитора (в статью и из статьи)."},
+      "6.3": {"title": "Maximum Related-Party Payments", "kind": "related_party_abs", "direction": "max", "threshold": 500000.00,
+              "metric": {"category": "related_party"}, "note": "связанные стороны по KYC, независимо от назначения платежа."}
+    },
+    "P1": {
+      "borrower": "Aktau Port Services JSC", "account": "ACC-7801", "source_doc": "8d878af064f2",
+      "6.1": {"title": "Maximum Capital Intensity Ratio", "kind": "ratio", "direction": "max", "threshold": 0.42,
+              "metric": {"numerator": ["capex"], "denominator": ["opex", "rent"]},
+              "note": "реклассификации аудитора двигают суммы и в числителе, и в знаменателе."},
+      "6.2": {"title": "Minimum Category Revenue", "kind": "aggregate_min", "direction": "min", "threshold": 7100000.00,
+              "metric": {"category": "revenue"}, "note": "выручка с учётом переквалификаций аудитора."},
+      "6.3": {"title": "Maximum Related-Party Payments", "kind": "related_party_abs", "direction": "max", "threshold": 450000.00,
+              "metric": {"category": "related_party"}, "note": "связанные стороны: IAS 24 + KYC (доля >=20%). Ловушка: Kaspi Marine 18.7% НЕ связанная."}
+    },
+    "P2": {
+      "borrower": "Almaty Cold Chain JSC", "account": "ACC-7802", "source_doc": "b2519c8e3ea4",
+      "6.1": {"title": "Minimum Cover of Applications by Sources", "kind": "ratio", "direction": "min", "threshold": 1.20,
+              "metric": {"numerator": ["revenue", "financing_inflows"], "denominator": ["opex", "capex"]}},
+      "6.2": {"title": "Maximum Category Expenditure (Capex)", "kind": "aggregate_max", "direction": "max", "threshold": 3000000.00,
+              "metric": {"category": "capex"}},
+      "6.3": {"title": "Maximum Related-Party Payments as Proportion of Revenue", "kind": "related_party_ratio", "direction": "max", "threshold": 0.03,
+              "metric": {"numerator": ["related_party"], "denominator": ["revenue"]}}
+    },
+    "P3": {
+      "borrower": "Shymkent Refinery Services JSC", "account": "ACC-7803", "source_doc": "85afaaca89ad",
+      "6.1": {"title": "Springing Drawdown Leverage Test", "kind": "springing_ratio", "direction": "max", "threshold": 1.70,
+              "metric": {"numerator": ["financing_inflows"], "denominator": ["revenue", "-opex"]},
+              "trigger": {"category": "financing_inflows", "above": 4000000.00},
+              "note": "применяется ТОЛЬКО если financing_inflows > $4M. actual = коэффициент в любом случае."},
+      "6.2": {"title": "Minimum Category Revenue", "kind": "aggregate_min", "direction": "min", "threshold": 6500000.00,
+              "metric": {"category": "revenue"}, "note": "суммы, переквалифицированные аудитором В неоперационные статьи, НЕ засчитываются."},
+      "6.3": {"title": "Maximum Related-Party Payments", "kind": "related_party_abs", "direction": "max", "threshold": 400000.00,
+              "metric": {"category": "related_party"}}
+    },
+    "P4": {
+      "borrower": "Aktobe Grain Terminal JSC", "account": "ACC-7804", "source_doc": "3a4aa2dbd6c4",
+      "6.1": {"title": "Minimum Adjusted EBITDA Margin", "kind": "ratio", "direction": "min", "threshold": 0.28,
+              "metric": {"numerator": ["revenue", "-opex", "addbacks"], "denominator": ["revenue"]},
+              "note": "Adj EBITDA = Выручка-Опекс+разовые статьи (материальные, по решению аудитора)."},
+      "6.2": {"title": "Maximum Category Expenditure (Capex)", "kind": "aggregate_max", "direction": "max", "threshold": 1800000.00,
+              "metric": {"category": "capex"}},
+      "6.3": {"title": "Maximum Related-Party Payments as Proportion of Revenue", "kind": "related_party_ratio", "direction": "max", "threshold": 0.04,
+              "metric": {"numerator": ["related_party"], "denominator": ["revenue"]}}
+    },
+    "P5": {
+      "borrower": "Ekibastuz Power Services JSC", "account": "ACC-7805", "source_doc": "1d262694c308",
+      "6.1": {"title": "Maximum Group Capex to Borrower EBITDA", "kind": "ratio", "direction": "max", "threshold": 9.00,
+              "metric": {"numerator": ["group_capex"], "denominator": ["revenue", "-opex"]},
+              "note": "числитель — капзатраты ГРУППЫ по консолидированной отчётности (из аудита), не только заёмщика."},
+      "6.2": {"title": "Minimum Category Revenue", "kind": "aggregate_min", "direction": "min", "threshold": 7500000.00,
+              "metric": {"category": "revenue"}},
+      "6.3": {"title": "Maximum Related-Party Payments", "kind": "related_party_abs", "direction": "max", "threshold": 260000.00,
+              "metric": {"category": "related_party"}}
+    },
+    "P6": {
+      "borrower": "Taraz Cement Works JSC", "account": "ACC-7806", "source_doc": "be7c1bba8940",
+      "6.1": {"title": "Maximum Related-Party Payments as Share of Opex", "kind": "related_party_ratio", "direction": "max", "threshold": 0.08,
+              "metric": {"numerator": ["related_party"], "denominator": ["opex"]}},
+      "6.2": {"title": "Minimum Revenue Coverage of Payroll+Utilities", "kind": "ratio", "direction": "min", "threshold": 3.00,
+              "metric": {"numerator": ["revenue"], "denominator": ["payroll", "utilities"]}},
+      "6.3": {"title": "Maximum Category Expenditure (Capex)", "kind": "aggregate_max", "direction": "max", "threshold": 1600000.00,
+              "metric": {"category": "capex"}}
+    },
+    "P7": {
+      "borrower": "Atyrau Pipeline Services JSC", "account": "ACC-7807", "source_doc": "6acb5bbc3e70",
+      "6.1": {"title": "Maximum Tax+Utility Burden to EBITDA", "kind": "ratio", "direction": "max", "threshold": 0.30,
+              "metric": {"numerator": ["taxes", "utilities"], "denominator": ["revenue", "-opex"]},
+              "note": "начисленные, но не уплаченные налоги учитываются (из данных казначейства/аудита)."},
+      "6.2": {"title": "Minimum Category Revenue", "kind": "aggregate_min", "direction": "min", "threshold": 8700000.00,
+              "metric": {"category": "revenue"}, "note": "переквалифицированные аудитором из категории — исключаются."},
+      "6.3": {"title": "Maximum Related-Party Payments", "kind": "related_party_abs", "direction": "max", "threshold": 275000.00,
+              "metric": {"category": "related_party"}}
+    },
+    "P8": {
+      "borrower": "Kyzylorda Drilling Services JSC", "account": "ACC-7808", "source_doc": "61dfc54675dc",
+      "6.1": {"title": "Maximum Aggregate Personnel Liabilities", "kind": "point_in_time_liability", "direction": "max", "threshold": 4000000.00,
+              "metric": {"components": ["payroll", "severance_program_liability"]},
+              "note": "сумма (а) всех расходов на персонал за период + (б) обязательства по программе выходных/сокращения на 31.12 (из примечаний аудита), независимо от срока платежа."},
+      "6.2": {"title": "Maximum Category Expenditure (Capex)", "kind": "aggregate_max", "direction": "max", "threshold": 2100000.00,
+              "metric": {"category": "capex"}},
+      "6.3": {"title": "Maximum Related-Party Payments as Proportion of Revenue", "kind": "related_party_ratio", "direction": "max", "threshold": 0.04,
+              "metric": {"numerator": ["related_party"], "denominator": ["revenue"]}}
+    },
+    "P9": {
+      "borrower": "Zhezkazgan Mining Services JSC", "account": "ACC-7809", "source_doc": "c2c9382c9168",
+      "6.1": {"title": "Maximum Assets Transferred to Unrestricted Subsidiaries", "kind": "ratio", "direction": "max", "threshold": 0.15,
+              "metric": {"numerator": ["transfers_to_unrestricted_subs"], "denominator": ["capex"]},
+              "note": "только передачи Неограниченным дочерним (статус из KYC); передачи Ограниченным в расчёт не входят."},
+      "6.2": {"title": "Minimum Category Revenue", "kind": "aggregate_min", "direction": "min", "threshold": 6900000.00,
+              "metric": {"category": "revenue"}},
+      "6.3": {"title": "Maximum Related-Party Payments", "kind": "related_party_abs", "direction": "max", "threshold": 225000.00,
+              "metric": {"category": "related_party"}}
+    },
+    "P10": {
+      "borrower": "Karaganda Logistics Terminal JSC", "account": "ACC-7810", "source_doc": "ba475cfc33a4",
+      "6.1": {"title": "Minimum Insurance Cover of Premises Costs", "kind": "ratio", "direction": "min", "threshold": 0.20,
+              "metric": {"numerator": ["insurance"], "denominator": ["rent", "utilities"]},
+              "note": "учитываются реклассификации, ПРИНЯТЫЕ аудитором; отклонённые — нет."},
+      "6.2": {"title": "Minimum Revenue Less Largest Overhead Line", "kind": "min_less_largest", "direction": "min", "threshold": 5000000.00,
+              "metric": {"base": "revenue", "subtract_largest_of": ["payroll", "taxes"]},
+              "note": "actual = Выручка - max(payroll, taxes). Меньшая из двух не вычитается."},
+      "6.3": {"title": "Maximum Related-Party Payments as Proportion of Revenue", "kind": "related_party_ratio", "direction": "max", "threshold": 0.05,
+              "metric": {"numerator": ["related_party"], "denominator": ["revenue"]}}
+    }
+  }
+}
