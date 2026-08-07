@@ -20,7 +20,9 @@ def _cat_sum(txns: list[Txn], category: str) -> float:
 
 
 def _related_party_sum(txns: list[Txn]) -> float:
-    return round(sum(abs(t.usd_amount) for t in txns if t.related_party), 2)
+    # «Платежи связанным сторонам» = только оттоки (отрицательные суммы).
+    # Поступления от связанной стороны (выручка, возвраты) не являются платежами.
+    return round(sum(abs(t.usd_amount) for t in txns if t.related_party and t.usd_amount < 0), 2)
 
 
 def _resolve_terms(terms: list[str], txns: list[Txn], scalars: dict) -> float:
@@ -76,15 +78,18 @@ def evaluate(spec: dict, txns: list[Txn], scalars: dict, evidence: str | None = 
     else:
         raise ValueError(f"неизвестный kind: {kind}")
 
-    actual = round(abs(actual), 2)
+    # Статус считаем по НЕокруглённому значению (иначе actual, равный порогу после
+    # округления, ложно проходит тест, тогда как истинное значение его нарушает).
+    raw = abs(actual)
+    actual = round(raw, 2)
 
     # springing: тест применяется только при срабатывании условия; иначе COMPLIANT,
     # но actual всё равно = фактическое значение показателя (правило кейса).
     if kind == "springing_ratio":
         trig = spec.get("trigger", {})
         triggered = _cat_sum(txns, trig["category"]) > trig["above"]
-        status = _status(actual, direction, threshold) if triggered else "COMPLIANT"
+        status = _status(raw, direction, threshold) if triggered else "COMPLIANT"
     else:
-        status = _status(actual, direction, threshold)
+        status = _status(raw, direction, threshold)
 
     return {"status": status, "actual": actual, "evidence_txn_id": evidence}

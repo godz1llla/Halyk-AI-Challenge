@@ -14,6 +14,8 @@ import csv, json, os
 from dataclasses import dataclass, field
 from pathlib import Path
 
+from .categorize import categorize
+
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "data" / "master_ledger_2025.csv"
 ENRICH_DIR = ROOT / "cache" / "enrichment"
@@ -91,8 +93,9 @@ def scenario_txns(all_txns: list[Txn], scenario: str, enrich: dict) -> list[Txn]
         # конвертация в USD
         rate = per_txn_fx.get(t.txn_id, fx.get(t.currency, 1.0 if t.currency == "USD" else None))
         t.usd_amount = t.amount * rate if rate is not None else t.amount
-        # категория (реклассификация аудитора имеет приоритет)
-        t.category = reclass.get(t.txn_id, cats.get(t.txn_id))
+        # категория: реклассификация аудитора > явная категория из enrichment >
+        # детерминированная категоризация по тексту description.
+        t.category = reclass.get(t.txn_id) or cats.get(t.txn_id) or categorize(t.description)
         # связанная сторона
         t.related_party = any(n in t.counterparty.lower() for n in rp_names)
         out.append(t)
