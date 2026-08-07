@@ -55,7 +55,11 @@ def evaluate(spec: dict, txns: list[Txn], scalars: dict, evidence: str | None = 
     m = spec.get("metric", {})
 
     if kind in ("aggregate_min", "aggregate_max"):
-        actual = _cat_sum(txns, m["category"])
+        pool = txns
+        pf = m.get("period_filter")
+        if pf == "Q4":
+            pool = [t for t in txns if t.date[5:7] in ("10", "11", "12")]
+        actual = _cat_sum(pool, m["category"])
 
     elif kind == "max_single_line":
         actual = max(_cat_sum(txns, line) for line in m["lines"])

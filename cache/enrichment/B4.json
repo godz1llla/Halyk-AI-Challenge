@@ -5,12 +5,15 @@
   ],
   "_related_parties_source": "a144690a213c: порог 30%. Kazyna 38.9%, Shymkent Fuel 48.0% связанные. Turkistan 29.4% и Atyrau Pipeline 11.7% — нет.",
   "categories": {},
-  "reclassifications": {},
+  "reclassifications": {
+    "TXN-B4-0026": "revenue_deferred"
+  },
   "amount_overrides": {},
   "scalars": {},
   "evidence": {
     "6.1": null,
     "6.2": null,
     "6.3": null
-  }
+  },
+  "_audit_source_61": "e334c4d4d3ea прим.9.1: TXN-B4-0026 (аванс, право/риски переходят в янв 2026) исключён из ковенантного периода 2025 => не Q4-выручка."
 }

@@ -37,9 +37,9 @@ _RULES: list[tuple[str, list[str]]] = [
     ("revenue",    ["sales", "revenue", "distribution settlement",
                     "services rendered", "freight", "throughput", "tariff income",
                     "storage income", "handling income"]),
-    # marketing / advisory / cleaning / courier / security / maintenance / prof. fees -> opex
-    ("opex",       ["marketing", "media buy", "radio ad", "advertis", "sponsorship",
-                    "newsletter", "collateral", "advisory", "consult", "retainer",
+    ("marketing",  ["marketing", "media buy", "media buy rate", "radio ad", "advertis", "sponsorship",
+                    "newsletter", "collateral", "ad campaign", "digital media", "brand", "exhibition", "livery", "sports club", "research panel"]),
+    ("opex",       ["advisory", "consult", "retainer",
                     "cleaning", "janitorial", "courier", "security", "maintenance",
                     "landscaping", "uniforms", "stationery", "office supplies",
                     "servicing", "operating costs", "waste", "printing"]),

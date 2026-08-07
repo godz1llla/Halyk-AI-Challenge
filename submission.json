@@ -5,8 +5,8 @@
   "answers": {
     "B1": {
       "6.1": {
-        "status": "COMPLIANT",
-        "actual": 17.31,
+        "status": "BREACH",
+        "actual": 1.74,
         "evidence_txn_id": null
       },
       "6.2": {
@@ -22,8 +22,8 @@
     },
     "B4": {
       "6.1": {
-        "status": "COMPLIANT",
-        "actual": 10003146.1,
+        "status": "BREACH",
+        "actual": 3084375.68,
         "evidence_txn_id": null
       },
       "6.2": {
@@ -40,7 +40,7 @@
     "P1": {
       "6.1": {
         "status": "COMPLIANT",
-        "actual": 0.05,
+        "actual": 0.1,
         "evidence_txn_id": null
       },
       "6.2": {
@@ -57,7 +57,7 @@
     "P2": {
       "6.1": {
         "status": "BREACH",
-        "actual": 0.2,
+        "actual": 1.15,
         "evidence_txn_id": null
       },
       "6.2": {
@@ -73,8 +73,8 @@
     },
     "P3": {
       "6.1": {
-        "status": "COMPLIANT",
-        "actual": 0.12,
+        "status": "BREACH",
+        "actual": 2.15,
         "evidence_txn_id": null
       },
       "6.2": {
@@ -90,8 +90,8 @@
     },
     "P4": {
       "6.1": {
-        "status": "COMPLIANT",
-        "actual": 1.94,
+        "status": "BREACH",
+        "actual": 0.17,
         "evidence_txn_id": null
       },
       "6.2": {
@@ -142,7 +142,7 @@
     "P7": {
       "6.1": {
         "status": "COMPLIANT",
-        "actual": 0.01,
+        "actual": 0.2,
         "evidence_txn_id": null
       },
       "6.2": {
