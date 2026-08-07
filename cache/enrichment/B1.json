@@ -62,7 +62,9 @@
     "TXN-B1-0004": "payroll",
     "TXN-B1-0024": "marketing"
   },
-  "reclassifications": {},
+  "reclassifications": {
+    "TXN-B1-0020": "interest"
+  },
   "amount_overrides": {},
   "scalars": {},
   "evidence": {
@@ -70,5 +72,6 @@
     "6.2": null,
     "6.3": null
   },
-  "_categories_source": "LLM llama-3.3-70b-versatile (кэш, воспроизводимо без ключа)"
+  "_categories_source": "LLM llama-3.3-70b-versatile (кэш, воспроизводимо без ключа)",
+  "_audit_source_61": "448b59e12768 (AR-2025-0634): TXN-B1-0020 Irtysh Advisory $592,296.10 из Консультационные услуги -> Процентные расходы (по сути плата за бридж-кредит)."
 }
