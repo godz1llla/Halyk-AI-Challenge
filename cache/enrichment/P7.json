@@ -5,11 +5,14 @@
   "_related_parties_source": "2bdb134db53c: порог 32%. Atyrau Holding Group 37.9%. Atyrau Pump 29.3% и Atyrau Energy 8.8% — нет.",
   "categories": {},
   "reclassifications": {},
-  "amount_overrides": {},
+  "amount_overrides": {
+    "TXN-P7-0033": -486204.19
+  },
   "scalars": {},
   "evidence": {
     "6.1": null,
     "6.2": null,
     "6.3": null
-  }
+  },
+  "_audit_source_61": "26acfab1e58b: TXN-P7-0033 (State Revenue Committee) факт. сумма $486,204.19 расход — начисленный, но неуплаченный налог, учитывается."
 }
