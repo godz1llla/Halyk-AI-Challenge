@@ -1,7 +1,7 @@
 {
-  "team": "halyk-ai-agency",
-  "contact_email": "you@example.com",
-  "model": "manual-extract",
+  "team": "hubtech.kz",
+  "contact_email": "orinbekov05@gmail.com",
+  "model": "llama-3.3-70b + deterministic engine",
   "answers": {
     "B1": {
       "6.1": {

@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SPECS = json.loads((ROOT / "specs" / "covenants.json").read_text())
 TEMPLATE = json.loads((ROOT / "data" / "submission_template.json").read_text())
 
-TEAM = {"team": "halyk-ai-agency", "contact_email": "you@example.com", "model": "manual-extract"}
+TEAM = {"team": "hubtech.kz", "contact_email": "orinbekov05@gmail.com", "model": "llama-3.3-70b + deterministic engine"}
 
 
 def build() -> dict:
