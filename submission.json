@@ -40,7 +40,7 @@
     "P1": {
       "6.1": {
         "status": "COMPLIANT",
-        "actual": 0.1,
+        "actual": 0.37,
         "evidence_txn_id": null
       },
       "6.2": {
@@ -74,7 +74,7 @@
     "P3": {
       "6.1": {
         "status": "BREACH",
-        "actual": 2.15,
+        "actual": 1.87,
         "evidence_txn_id": null
       },
       "6.2": {
