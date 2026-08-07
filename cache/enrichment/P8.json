@@ -5,11 +5,16 @@
   "_related_parties_source": "22c1707dad45: порог 38%. Syrdarya 44.6%. Kyzylorda Drilling Personnel 36.2% и Ural Rig 10.7% — нет.",
   "categories": {},
   "reclassifications": {},
-  "amount_overrides": {},
-  "scalars": {},
+  "amount_overrides": {
+    "TXN-P8-0031": -884204.16
+  },
+  "scalars": {
+    "severance_program_liability": 918447.52
+  },
   "evidence": {
     "6.1": null,
     "6.2": null,
     "6.3": null
-  }
+  },
+  "_audit_source": "bf9b7bffc514: severance $918,447.52 (прим.7.1); TXN-P8-0031 факт. сумма $884,204.16 расход (прим.8.1)."
 }

@@ -1,6 +1,8 @@
 {
   "categories": {},
-  "reclassifications": {},
+  "reclassifications": {
+    "TXN-P10-0017": "insurance"
+  },
   "amount_overrides": {},
   "scalars": {},
   "evidence": {
@@ -11,5 +13,6 @@
   "related_parties": [
     "Saryarka Capital Partners"
   ],
-  "_related_parties_source": "07e1a2a0275d: порог 36%. \"Saryarka Capital Partners\" LLP >=36% связанная. Saryarka Terminal Properties 33.5% и Karaganda Energy 12.1% — нет (внимание: не путать с Terminal Properties)."
+  "_related_parties_source": "07e1a2a0275d: порог 36%. \"Saryarka Capital Partners\" LLP >=36% связанная. Saryarka Terminal Properties 33.5% и Karaganda Energy 12.1% — нет (внимание: не путать с Terminal Properties).",
+  "_audit_source_61": "4db1d630055f прим.7.1: TXN-P10-0017 ($142,118.64 Tengiz Risk) opex->insurance. TXN-P10-0012 и TXN-P10-0021 — отклонённые/проверенные, без изменений."
 }

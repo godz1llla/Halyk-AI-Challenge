@@ -158,8 +158,8 @@
     },
     "P8": {
       "6.1": {
-        "status": "COMPLIANT",
-        "actual": 2418663.27,
+        "status": "BREACH",
+        "actual": 4221314.95,
         "evidence_txn_id": null
       },
       "6.2": {
@@ -192,8 +192,8 @@
     },
     "P10": {
       "6.1": {
-        "status": "BREACH",
-        "actual": 0.15,
+        "status": "COMPLIANT",
+        "actual": 0.24,
         "evidence_txn_id": null
       },
       "6.2": {

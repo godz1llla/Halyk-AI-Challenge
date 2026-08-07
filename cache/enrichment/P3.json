@@ -11,5 +11,9 @@
   "related_parties": [
     "Turan Capital"
   ],
-  "_related_parties_source": "ee32532e1126: порог 25%. \"Turan Capital\" LLP 28.8% связанная. Shymkent Plant Services 22.9% и KazMunayGas 4.1% — нет."
+  "_related_parties_source": "ee32532e1126: порог 25%. \"Turan Capital\" LLP 28.8% связанная. Shymkent Plant Services 22.9% и KazMunayGas 4.1% — нет.",
+  "per_txn_fx": {
+    "TXN-P3-0024": 1.16
+  },
+  "_audit_source_fx": "6f1c06f8479a прим.9.1: Rheinland 72,146.75 EUR = $83,690.23 => курс 1.16 (расчётный)."
 }
