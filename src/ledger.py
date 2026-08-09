@@ -17,8 +17,10 @@ from pathlib import Path
 from .categorize import categorize
 
 ROOT = Path(__file__).resolve().parents[1]
-LEDGER = ROOT / "data" / "master_ledger_2025.csv"
-ENRICH_DIR = ROOT / "cache" / "enrichment"
+# Переключение набора данных через окружение (публичный по умолчанию, hidden для сдачи).
+DATA = ROOT / os.environ.get("HALYK_DATA", "data")
+LEDGER = DATA / "master_ledger_2025.csv"
+ENRICH_DIR = ROOT / os.environ.get("HALYK_ENRICH", "cache/enrichment")
 
 
 @dataclass

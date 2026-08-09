@@ -1,0 +1,980 @@
+{
+  "period": {
+    "start": "2025-01-01",
+    "end": "2025-12-31"
+  },
+  "scenarios": {
+    "B2": {
+      "account": "ACC-7202",
+      "6.1": {
+        "kind": "springing_ratio",
+        "direction": "max",
+        "threshold": 3.0,
+        "metric": {
+          "numerator": [
+            "debt"
+          ],
+          "denominator": [
+            "revenue",
+            "-opex"
+          ],
+          "trigger": {
+            "category": "capex",
+            "above": 2500000.0
+          }
+        }
+      },
+      "6.2": {
+        "kind": "aggregate_min",
+        "direction": "min",
+        "threshold": 8500000.0,
+        "metric": {
+          "category": "revenue"
+        }
+      },
+      "6.3": {
+        "kind": "related_party_abs",
+        "direction": "max",
+        "threshold": 225000.0,
+        "metric": {
+          "category": "related_party"
+        }
+      }
+    },
+    "B3": {
+      "account": "ACC-7203",
+      "6.1": {
+        "kind": "related_party_abs",
+        "direction": "max",
+        "threshold": 250000,
+        "metric": {
+          "category": "related_party"
+        }
+      },
+      "6.2": {
+        "kind": "ratio",
+        "direction": "min",
+        "threshold": 0.67,
+        "metric": {
+          "numerator": [
+            "revenue",
+            "-payroll",
+            "-taxes"
+          ],
+          "denominator": [
+            "revenue"
+          ]
+        }
+      },
+      "6.3": {
+        "kind": "max_single_line",
+        "direction": "max",
+        "threshold": 400000,
+        "metric": {
+          "lines": [
+            "marketing"
+          ]
+        }
+      }
+    },
+    "B5": {
+      "account": "ACC-7205",
+      "6.1": {
+        "kind": "ratio",
+        "direction": "max",
+        "threshold": 3.0,
+        "metric": {
+          "numerator": [
+            "revenue",
+            "-opex"
+          ],
+          "denominator": [
+            "revenue",
+            "-opex"
+          ]
+        }
+      },
+      "6.2": {
+        "kind": "aggregate_min",
+        "direction": "min",
+        "threshold": 10000000,
+        "metric": {
+          "category": "financing_inflows"
+        }
+      },
+      "6.3": {
+        "kind": "related_party_abs",
+        "direction": "max",
+        "threshold": 450000,
+        "metric": {
+          "category": "related_party"
+        }
+      }
+    },
+    "F1": {
+      "account": "ACC-7301",
+      "6.1": {
+        "kind": "springing_ratio",
+        "direction": "max",
+        "threshold": 3.5,
+        "metric": {
+          "numerator": [
+            "debt"
+          ],
+          "denominator": [
+            "revenue",
+            "-opex"
+          ],
+          "trigger": {
+            "category": "capex",
+            "above": 2000000
+          }
+        }
+      },
+      "6.2": {
+        "kind": "ratio",
+        "direction": "max",
+        "threshold": 0.23,
+        "metric": {
+          "numerator": [
+            "taxes",
+            "interest"
+          ],
+          "denominator": [
+            "revenue"
+          ]
+        }
+      },
+      "6.3": {
+        "kind": "related_party_abs",
+        "direction": "max",
+        "threshold": 450000,
+        "metric": {
+          "category": "related_party"
+        }
+      }
+    },
+    "F2": {
+      "account": "ACC-7302",
+      "6.1": {
+        "kind": "max_single_line",
+        "direction": "max",
+        "threshold": 300000,
+        "metric": {
+          "lines": [
+            "marketing"
+          ]
+        }
+      },
+      "6.2": {
+        "kind": "springing_ratio",
+        "direction": "max",
+        "threshold": 900000,
+        "metric": {
+          "numerator": [
+            "rent"
+          ],
+          "denominator": [
+            "revenue"
+          ],
+          "trigger": {
+            "category": "payroll",
+            "above": 0.3
+          }
+        }
+      },
+      "6.3": {
+        "kind": "related_party_abs",
+        "direction": "max",
+        "threshold": 400000,
+        "metric": {
+          "category": "related_party"
+        }
+      }
+    },
+    "F3": {
+      "account": "ACC-7303",
+      "6.1": {
+        "kind": "aggregate_max",
+        "direction": "max",
+        "threshold": 20000000,
+        "metric": {
+          "category": "capex"
+        }
+      },
+      "6.2": {
+        "kind": "ratio",
+        "direction": "min",
+        "threshold": 0.17,
+        "metric": {
+          "numerator": [
+            "insurance"
+          ],
+          "denominator": [
+            "capex"
+          ]
+        }
+      },
+      "6.3": {
+        "kind": "related_party_abs",
+        "direction": "max",
+        "threshold": 280000,
+        "metric": {
+          "category": "related_party"
+        }
+      }
+    },
+    "G1": {
+      "account": "ACC-7401",
+      "6.1": {
+        "kind": "ratio",
+        "direction": "max",
+        "threshold": 3.0,
+        "metric": {
+          "numerator": [
+            "financing_inflows"
+          ],
+          "denominator": [
+            "revenue",
+            "-opex",
+            "addbacks"
+          ]
+        }
+      },
+      "6.2": {
+        "kind": "aggregate_min",
+        "direction": "min",
+        "threshold": 7200000,
+        "metric": {
+          "category": "revenue"
+        }
+      },
+      "6.3": {
+        "kind": "related_party_abs",
+        "direction": "max",
+        "threshold": 240000,
+        "metric": {
+          "category": "related_party"
+        }
+      }
+    },
+    "G2": {
+      "account": "ACC-7402",
+      "6.1": {
+        "kind": "max_single_line",
+        "direction": "max",
+        "threshold": 250000,
+        "metric": {
+          "lines": [
+            "related_party"
+          ]
+        }
+      },
+      "6.2": {
+        "kind": "aggregate_min",
+        "direction": "min",
+        "threshold": 8000000,
+        "metric": {
+          "category": "revenue"
+        }
+      },
+      "6.3": {
+        "kind": "related_party_abs",
+        "direction": "max",
+        "threshold": 400000,
+        "metric": {
+          "category": "related_party"
+        }
+      }
+    },
+    "G3": {
+      "account": "ACC-7403",
+      "6.1": {
+        "kind": "aggregate_max",
+        "direction": "max",
+        "threshold": 2500000,
+        "metric": {
+          "category": "debt"
+        }
+      },
+      "6.2": {
+        "kind": "aggregate_min",
+        "direction": "min",
+        "threshold": 7300000,
+        "metric": {
+          "category": "revenue"
+        }
+      },
+      "6.3": {
+        "kind": "related_party_abs",
+        "direction": "max",
+        "threshold": 255000,
+        "metric": {
+          "category": "related_party"
+        }
+      }
+    },
+    "H1": {
+      "account": "ACC-7501",
+      "6.1": {
+        "kind": "ratio",
+        "direction": "min",
+        "threshold": 1.25,
+        "metric": {
+          "numerator": [
+            "revenue",
+            "-opex"
+          ],
+          "denominator": [
+            "interest"
+          ]
+        }
+      },
+      "6.2": {
+        "kind": "aggregate_min",
+        "direction": "min",
+        "threshold": 6800000,
+        "metric": {
+          "category": "revenue"
+        }
+      },
+      "6.3": {
+        "kind": "related_party_abs",
+        "direction": "max",
+        "threshold": 350000,
+        "metric": {
+          "category": "related_party"
+        }
+      }
+    },
+    "H2": {
+      "account": "ACC-7502",
+      "6.1": {
+        "kind": "springing_ratio",
+        "direction": "max",
+        "threshold": 3.0,
+        "metric": {
+          "numerator": [
+            "debt"
+          ],
+          "denominator": [
+            "revenue",
+            "-opex"
+          ],
+          "trigger": {
+            "category": "debt",
+            "above": 200000
+          }
+        }
+      },
+      "6.2": {
+        "kind": "aggregate_min",
+        "direction": "min",
+        "threshold": 9400000,
+        "metric": {
+          "category": "revenue"
+        }
+      },
+      "6.3": {
+        "kind": "aggregate_max",
+        "direction": "max",
+        "threshold": 2000000,
+        "metric": {
+          "category": "capex"
+        }
+      }
+    },
+    "H3": {
+      "account": "ACC-7503",
+      "6.1": {
+        "kind": "ratio",
+        "direction": "min",
+        "threshold": 1.5,
+        "metric": {
+          "numerator": [
+            "revenue",
+            "-opex",
+            "rent"
+          ],
+          "denominator": [
+            "interest",
+            "rent"
+          ]
+        }
+      },
+      "6.2": {
+        "kind": "ratio",
+        "direction": "max",
+        "threshold": 1.0,
+        "metric": {
+          "numerator": [
+            "rent"
+          ],
+          "denominator": [
+            "insurance"
+          ]
+        }
+      },
+      "6.3": {
+        "kind": "related_party_abs",
+        "direction": "max",
+        "threshold": 400000.0,
+        "metric": {
+          "category": "related_party"
+        }
+      }
+    },
+    "H4": {
+      "account": "ACC-7504",
+      "6.1": {
+        "kind": "ratio",
+        "direction": "max",
+        "threshold": 3.0,
+        "metric": {
+          "numerator": [
+            "financing_inflows"
+          ],
+          "denominator": [
+            "revenue",
+            "-opex",
+            "addbacks"
+          ]
+        }
+      },
+      "6.2": {
+        "kind": "aggregate_min",
+        "direction": "min",
+        "threshold": 7600000,
+        "metric": {
+          "category": "revenue"
+        }
+      },
+      "6.3": {
+        "kind": "related_party_abs",
+        "direction": "max",
+        "threshold": 200000,
+        "metric": {
+          "category": "related_party"
+        }
+      }
+    },
+    "H5": {
+      "account": "ACC-7505",
+      "6.1": {
+        "kind": "aggregate_max",
+        "direction": "max",
+        "threshold": 400000,
+        "metric": {
+          "category": "marketing"
+        }
+      },
+      "6.2": {
+        "kind": "ratio",
+        "direction": "min",
+        "threshold": 2.28,
+        "metric": {
+          "numerator": [
+            "revenue",
+            "-opex"
+          ],
+          "denominator": [
+            "rent",
+            "utilities",
+            "insurance"
+          ]
+        }
+      },
+      "6.3": {
+        "kind": "related_party_abs",
+        "direction": "max",
+        "threshold": 350000,
+        "metric": {
+          "category": "related_party"
+        }
+      }
+    },
+    "J1": {
+      "account": "ACC-7601",
+      "6.1": {
+        "kind": "ratio",
+        "direction": "min",
+        "threshold": 600000,
+        "metric": {
+          "numerator": [
+            "revenue",
+            "-opex"
+          ],
+          "denominator": [
+            1
+          ]
+        }
+      },
+      "6.2": {
+        "kind": "ratio",
+        "direction": "max",
+        "threshold": 0.18,
+        "metric": {
+          "numerator": [
+            "capex"
+          ],
+          "denominator": [
+            "revenue"
+          ]
+        }
+      },
+      "6.3": {
+        "kind": "ratio",
+        "direction": "min",
+        "threshold": 1200000,
+        "metric": {
+          "numerator": [
+            "revenue",
+            "-opex",
+            "-rent",
+            "-payroll"
+          ],
+          "denominator": [
+            1
+          ]
+        }
+      }
+    },
+    "J2": {
+      "account": "ACC-7602",
+      "6.1": {
+        "kind": "ratio",
+        "direction": "max",
+        "threshold": 3.25,
+        "metric": {
+          "numerator": [
+            "debt"
+          ],
+          "denominator": [
+            "revenue",
+            "-opex"
+          ]
+        }
+      },
+      "6.2": {
+        "kind": "ratio",
+        "direction": "max",
+        "threshold": 3.0,
+        "metric": {
+          "numerator": [
+            "debt"
+          ],
+          "denominator": [
+            "revenue",
+            "-opex"
+          ]
+        }
+      },
+      "6.3": {
+        "kind": "ratio",
+        "direction": "min",
+        "threshold": 0.25,
+        "metric": {
+          "numerator": [
+            "revenue",
+            "-opex"
+          ],
+          "denominator": [
+            "revenue"
+          ]
+        }
+      }
+    },
+    "J3": {
+      "account": "ACC-7603",
+      "6.1": {
+        "kind": "ratio",
+        "direction": "max",
+        "threshold": 3.0,
+        "metric": {
+          "numerator": [
+            "debt"
+          ],
+          "denominator": [
+            "revenue",
+            "-opex"
+          ]
+        }
+      },
+      "6.2": {
+        "kind": "ratio",
+        "direction": "max",
+        "threshold": 0.2,
+        "metric": {
+          "numerator": [
+            "consulting_services"
+          ],
+          "denominator": [
+            "revenue",
+            "-opex"
+          ]
+        }
+      },
+      "6.3": {
+        "kind": "max_single_line",
+        "direction": "max",
+        "threshold": 700000,
+        "metric": {
+          "lines": [
+            "rent",
+            "utilities",
+            "insurance"
+          ]
+        }
+      }
+    },
+    "J5": {
+      "account": "ACC-7605",
+      "6.1": {
+        "kind": "springing_ratio",
+        "direction": "max",
+        "threshold": 3.5,
+        "metric": {
+          "numerator": [
+            "interest",
+            "debt"
+          ],
+          "denominator": [
+            "revenue",
+            "-opex"
+          ],
+          "trigger": {
+            "category": "capex",
+            "above": 1800000
+          }
+        }
+      },
+      "6.2": {
+        "kind": "ratio",
+        "direction": "max",
+        "threshold": 0.7,
+        "metric": {
+          "numerator": [
+            "capex"
+          ],
+          "denominator": [
+            "revenue",
+            "-opex"
+          ]
+        }
+      },
+      "6.3": {
+        "kind": "min_less_largest",
+        "direction": "min",
+        "threshold": 6000000,
+        "metric": {
+          "base": "revenue",
+          "subtract_largest_of": [
+            "capex"
+          ]
+        }
+      }
+    },
+    "J6": {
+      "account": "ACC-7606",
+      "6.1": {
+        "kind": "aggregate_max",
+        "direction": "max",
+        "threshold": 20.0,
+        "metric": {
+          "category": "capex"
+        }
+      },
+      "6.2": {
+        "kind": "aggregate_min",
+        "direction": "min",
+        "threshold": 3.0,
+        "metric": {
+          "category": "revenue"
+        }
+      },
+      "6.3": {
+        "kind": "ratio",
+        "direction": "max",
+        "threshold": 0.05,
+        "metric": {
+          "numerator": [
+            "interest",
+            "rent"
+          ],
+          "denominator": [
+            "capex"
+          ]
+        }
+      }
+    },
+    "KC": {
+      "account": "TELE-4471",
+      "6.1": {
+        "kind": "ratio",
+        "direction": "max",
+        "threshold": 1.5,
+        "metric": {
+          "numerator": [
+            "financing_inflows"
+          ],
+          "denominator": [
+            "revenue",
+            "-opex",
+            "addbacks"
+          ]
+        }
+      },
+      "6.2": {
+        "kind": "ratio",
+        "direction": "max",
+        "threshold": 0.8,
+        "metric": {
+          "numerator": [
+            "capex"
+          ],
+          "denominator": [
+            "revenue"
+          ]
+        }
+      },
+      "6.3": {
+        "kind": "related_party_abs",
+        "direction": "max",
+        "threshold": 20000000,
+        "metric": {
+          "category": "related_party"
+        }
+      }
+    },
+    "S1": {
+      "account": "ACC-7001",
+      "6.1": {
+        "kind": "aggregate_max",
+        "direction": "max",
+        "threshold": 2000000,
+        "metric": {
+          "category": "capex"
+        }
+      },
+      "6.2": {
+        "kind": "aggregate_min",
+        "direction": "min",
+        "threshold": 5750000,
+        "metric": {
+          "category": "revenue"
+        }
+      },
+      "6.3": {
+        "kind": "related_party_abs",
+        "direction": "max",
+        "threshold": 275000,
+        "metric": {
+          "category": "related_party"
+        }
+      }
+    },
+    "S2": {
+      "account": "ACC-7002",
+      "6.1": {
+        "kind": "aggregate_max",
+        "direction": "max",
+        "threshold": 3000000,
+        "metric": {
+          "category": "capex"
+        }
+      },
+      "6.2": {
+        "kind": "aggregate_min",
+        "direction": "min",
+        "threshold": 5150000,
+        "metric": {
+          "category": "revenue"
+        }
+      },
+      "6.3": {
+        "kind": "aggregate_max",
+        "direction": "max",
+        "threshold": 400000,
+        "metric": {
+          "category": "marketing"
+        }
+      }
+    },
+    "S3": {
+      "account": "ACC-7003",
+      "6.1": {
+        "kind": "ratio",
+        "direction": "max",
+        "threshold": 3.0,
+        "metric": {
+          "numerator": [
+            "revenue",
+            "-opex"
+          ],
+          "denominator": [
+            "revenue",
+            "-opex",
+            "-interest"
+          ]
+        }
+      },
+      "6.2": {
+        "kind": "aggregate_max",
+        "direction": "max",
+        "threshold": 2500000,
+        "metric": {
+          "category": "capex"
+        }
+      },
+      "6.3": {
+        "kind": "related_party_abs",
+        "direction": "max",
+        "threshold": 600000,
+        "metric": {
+          "category": "related_party"
+        }
+      }
+    },
+    "X1": {
+      "account": "ACC-7830",
+      "6.1": {
+        "kind": "aggregate_max",
+        "direction": "max",
+        "threshold": 600000,
+        "metric": {
+          "category": "marketing"
+        }
+      },
+      "6.2": {
+        "kind": "aggregate_min",
+        "direction": "min",
+        "threshold": 4000000,
+        "metric": {
+          "category": "revenue"
+        }
+      },
+      "6.3": {
+        "kind": "related_party_abs",
+        "direction": "max",
+        "threshold": 700000,
+        "metric": {
+          "category": "related_party"
+        }
+      }
+    },
+    "X2": {
+      "account": "ACC-7831",
+      "6.1": {
+        "kind": "aggregate_max",
+        "direction": "max",
+        "threshold": 25000000,
+        "metric": {
+          "category": "opex"
+        }
+      },
+      "6.2": {
+        "kind": "ratio",
+        "direction": "max",
+        "threshold": 3.0,
+        "metric": {
+          "numerator": [
+            "financing_inflows"
+          ],
+          "denominator": [
+            "revenue",
+            "-opex",
+            "addbacks"
+          ]
+        }
+      },
+      "6.3": {
+        "kind": "related_party_abs",
+        "direction": "max",
+        "threshold": 850000,
+        "metric": {
+          "category": "related_party"
+        }
+      }
+    },
+    "X3": {
+      "account": "ACC-7832",
+      "6.1": {
+        "kind": "max_single_line",
+        "direction": "max",
+        "threshold": 700000,
+        "metric": {
+          "lines": [
+            "marketing"
+          ]
+        }
+      },
+      "6.2": {
+        "kind": "ratio",
+        "direction": "max",
+        "threshold": 3.4,
+        "metric": {
+          "numerator": [
+            "debt"
+          ],
+          "denominator": [
+            "revenue",
+            "-opex"
+          ]
+        }
+      },
+      "6.3": {
+        "kind": "ratio",
+        "direction": "max",
+        "threshold": 2.75,
+        "metric": {
+          "numerator": [
+            "capex"
+          ],
+          "denominator": [
+            "revenue",
+            "-opex"
+          ]
+        }
+      }
+    },
+    "J4": {
+      "account": "ACC-7604",
+      "6.1": {
+        "title": "Springing transfers to Unrestricted Subs",
+        "kind": "aggregate_max",
+        "direction": "max",
+        "threshold": 500000.0,
+        "metric": {
+          "category": "transfers_to_unrestricted_subs"
+        },
+        "note": "best-effort: передачи Неограниченным дочкам не идентифицируемы из данных"
+      },
+      "6.2": {
+        "title": "Maximum Net Debt Leverage",
+        "kind": "ratio",
+        "direction": "max",
+        "threshold": 3.0,
+        "metric": {
+          "numerator": [
+            "financing_inflows"
+          ],
+          "denominator": [
+            "revenue",
+            "-opex"
+          ]
+        },
+        "note": "Net Debt/EBITDA"
+      },
+      "6.3": {
+        "title": "Max Quarterly Revenue Concentration",
+        "kind": "related_party_abs",
+        "direction": "max",
+        "threshold": 0.3,
+        "metric": {
+          "category": "related_party"
+        },
+        "note": "best-effort: квартальная концентрация не поддержана движком"
+      }
+    }
+  }
+}

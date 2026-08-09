@@ -30,6 +30,9 @@ def _resolve_terms(terms: list[str], txns: list[Txn], scalars: dict) -> float:
     имена вне ledger (group_capex, addbacks, ...) берутся из scalars."""
     total = 0.0
     for term in terms:
+        if isinstance(term, (int, float)):  # константа в формуле (напр., из LLM-спека)
+            total += float(term)
+            continue
         neg = term.startswith("-")
         name = term[1:] if neg else term
         if name == "related_party":
@@ -90,8 +93,10 @@ def evaluate(spec: dict, txns: list[Txn], scalars: dict, evidence: str | None = 
     # springing: тест применяется только при срабатывании условия; иначе COMPLIANT,
     # но actual всё равно = фактическое значение показателя (правило кейса).
     if kind == "springing_ratio":
-        trig = spec.get("trigger", {})
-        triggered = _cat_sum(txns, trig["category"]) > trig["above"]
+        trig = spec.get("trigger") or m.get("trigger") or {}
+        cat, above = trig.get("category"), trig.get("above")
+        # при неполном описании триггера безопаснее применить тест, чем пропустить нарушение
+        triggered = (_cat_sum(txns, cat) > above) if (cat and above is not None) else True
         status = _status(raw, direction, threshold) if triggered else "COMPLIANT"
     else:
         status = _status(raw, direction, threshold)
