@@ -78,8 +78,8 @@
         "evidence_txn_id": null
       },
       "6.2": {
-        "status": "COMPLIANT",
-        "actual": 0.15,
+        "status": "BREACH",
+        "actual": 1046332.77,
         "evidence_txn_id": null
       },
       "6.3": {
@@ -244,7 +244,7 @@
     "J1": {
       "6.1": {
         "status": "COMPLIANT",
-        "actual": 3391024.7,
+        "actual": 650770.58,
         "evidence_txn_id": null
       },
       "6.2": {
@@ -316,8 +316,8 @@
         "evidence_txn_id": null
       },
       "6.2": {
-        "status": "COMPLIANT",
-        "actual": 12244543.24,
+        "status": "BREACH",
+        "actual": 2725137.37,
         "evidence_txn_id": null
       },
       "6.3": {

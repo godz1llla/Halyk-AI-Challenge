@@ -82,6 +82,15 @@ def evaluate(spec: dict, txns: list[Txn], scalars: dict, evidence: str | None = 
     elif kind == "point_in_time_liability":
         actual = _resolve_terms(m["components"], txns, scalars)
 
+    elif kind in ("quarterly_min", "quarterly_max"):
+        # показатель считается отдельно за каждый квартал; берём худший (мин/макс).
+        terms = m.get("terms") or [m.get("category", "revenue")]
+        byq: dict[int, list] = {}
+        for t in txns:
+            byq.setdefault((int(t.date[5:7]) - 1) // 3, []).append(t)
+        vals = [_resolve_terms(terms, byq.get(q, []), scalars) for q in range(4)]
+        actual = min(vals) if kind == "quarterly_min" else max(vals)
+
     else:
         raise ValueError(f"неизвестный kind: {kind}")
 

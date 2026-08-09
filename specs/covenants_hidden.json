@@ -167,21 +167,14 @@
         }
       },
       "6.2": {
-        "kind": "springing_ratio",
+        "title": "Springing property rental cap",
+        "kind": "aggregate_max",
         "direction": "max",
-        "threshold": 900000,
+        "threshold": 900000.0,
         "metric": {
-          "numerator": [
-            "rent"
-          ],
-          "denominator": [
-            "revenue"
-          ],
-          "trigger": {
-            "category": "payroll",
-            "above": 0.3
-          }
-        }
+          "category": "rent"
+        },
+        "note": "springing при payroll>30% выручки; тестируем cap"
       },
       "6.3": {
         "kind": "related_party_abs",
@@ -496,16 +489,14 @@
     "J1": {
       "account": "ACC-7601",
       "6.1": {
-        "kind": "ratio",
+        "title": "Min quarterly EBITDA",
+        "kind": "quarterly_min",
         "direction": "min",
-        "threshold": 600000,
+        "threshold": 600000.0,
         "metric": {
-          "numerator": [
+          "terms": [
             "revenue",
             "-opex"
-          ],
-          "denominator": [
-            1
           ]
         }
       },
@@ -685,11 +676,14 @@
         }
       },
       "6.2": {
-        "kind": "aggregate_min",
+        "title": "Min quarterly revenue",
+        "kind": "quarterly_min",
         "direction": "min",
-        "threshold": 3.0,
+        "threshold": 3000000.0,
         "metric": {
-          "category": "revenue"
+          "terms": [
+            "revenue"
+          ]
         }
       },
       "6.3": {
