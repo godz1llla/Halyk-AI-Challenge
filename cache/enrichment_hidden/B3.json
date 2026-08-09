@@ -57,5 +57,8 @@
     "TXN-B3-0018": "insurance",
     "TXN-B3-0022": "payroll"
   },
-  "_categories_source": "LLM llama-3.3-70b-versatile (кэш, воспроизводимо без ключа)"
+  "_categories_source": "LLM llama-3.3-70b-versatile (кэш, воспроизводимо без ключа)",
+  "fx_rates": {
+    "EUR": 1.08
+  }
 }

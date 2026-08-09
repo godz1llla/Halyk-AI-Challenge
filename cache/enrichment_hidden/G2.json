@@ -61,5 +61,8 @@
   "related_parties": [
     "Alatau Advisory Partners"
   ],
-  "_related_parties_source": "KYC ACC-7402, порог >=25.0%"
+  "_related_parties_source": "KYC ACC-7402, порог >=25.0%",
+  "fx_rates": {
+    "EUR": 1.08
+  }
 }

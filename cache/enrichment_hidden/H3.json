@@ -63,5 +63,8 @@
     "Aktobe Depot Services",
     "Kargaly Holdings"
   ],
-  "_related_parties_source": "KYC ACC-7503, порог >=30.0%"
+  "_related_parties_source": "KYC ACC-7503, порог >=30.0%",
+  "fx_rates": {
+    "EUR": 1.08
+  }
 }

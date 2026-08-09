@@ -64,5 +64,8 @@
   "related_parties": [
     "Alatau Holdings"
   ],
-  "_related_parties_source": "KYC ACC-7302, порог >=30.0%"
+  "_related_parties_source": "KYC ACC-7302, порог >=30.0%",
+  "fx_rates": {
+    "EUR": 1.08
+  }
 }

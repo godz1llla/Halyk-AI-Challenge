@@ -3,5 +3,8 @@
     "Bayanaul Power Trading",
     "Ereymentau Capital Partners"
   ],
-  "_related_parties_source": "KYC ACC-7832, порог >=25.0%"
+  "_related_parties_source": "KYC ACC-7832, порог >=25.0%",
+  "fx_rates": {
+    "EUR": 1.08
+  }
 }

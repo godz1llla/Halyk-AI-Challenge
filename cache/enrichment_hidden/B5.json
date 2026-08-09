@@ -61,5 +61,8 @@
   "related_parties": [
     "Syrdarya Capital"
   ],
-  "_related_parties_source": "KYC ACC-7205, порог >=20.0%"
+  "_related_parties_source": "KYC ACC-7205, порог >=20.0%",
+  "fx_rates": {
+    "EUR": 1.08
+  }
 }

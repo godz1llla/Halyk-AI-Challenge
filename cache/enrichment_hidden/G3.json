@@ -59,5 +59,8 @@
   "related_parties": [
     "Taraz Holding Advisers"
   ],
-  "_related_parties_source": "KYC ACC-7403, порог >=30.0%"
+  "_related_parties_source": "KYC ACC-7403, порог >=30.0%",
+  "fx_rates": {
+    "EUR": 1.08
+  }
 }

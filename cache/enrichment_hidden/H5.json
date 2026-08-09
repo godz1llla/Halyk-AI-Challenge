@@ -65,5 +65,11 @@
     "Semey Capital Partners",
     "Tengri Brand Studio"
   ],
-  "_related_parties_source": "KYC ACC-7505, порог >=25.0%"
+  "_related_parties_source": "KYC ACC-7505, порог >=25.0%",
+  "reclassifications": {
+    "TXN-H5-0024": "marketing"
+  },
+  "fx_rates": {
+    "EUR": 1.08
+  }
 }

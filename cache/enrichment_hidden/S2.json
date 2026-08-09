@@ -55,5 +55,8 @@
     "TXN-S2-0048": "rent",
     "TXN-S2-0010": "revenue"
   },
-  "_categories_source": "LLM llama-3.3-70b-versatile (кэш, воспроизводимо без ключа)"
+  "_categories_source": "LLM llama-3.3-70b-versatile (кэш, воспроизводимо без ключа)",
+  "fx_rates": {
+    "EUR": 1.08
+  }
 }

@@ -56,5 +56,8 @@
     "TXN-J5-0041": "utilities",
     "TXN-J5-0043": "payroll"
   },
-  "_categories_source": "LLM llama-3.3-70b-versatile (кэш, воспроизводимо без ключа)"
+  "_categories_source": "LLM llama-3.3-70b-versatile (кэш, воспроизводимо без ключа)",
+  "fx_rates": {
+    "EUR": 1.08
+  }
 }

@@ -60,5 +60,8 @@
     "TXN-J3-0019": "taxes",
     "TXN-J3-0062": "taxes"
   },
-  "_categories_source": "LLM llama-3.3-70b-versatile (кэш, воспроизводимо без ключа)"
+  "_categories_source": "LLM llama-3.3-70b-versatile (кэш, воспроизводимо без ключа)",
+  "fx_rates": {
+    "EUR": 1.08
+  }
 }

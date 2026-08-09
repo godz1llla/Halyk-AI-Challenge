@@ -55,5 +55,15 @@
     "TXN-S1-0046": "utilities",
     "TXN-S1-0030": "rent"
   },
-  "_categories_source": "LLM llama-3.3-70b-versatile (кэш, воспроизводимо без ключа)"
+  "_categories_source": "LLM llama-3.3-70b-versatile (кэш, воспроизводимо без ключа)",
+  "amount_overrides": {
+    "TXN-S1-0029": 6082920.03
+  },
+  "_accrual_source": "agreed-procedures 1c7eee333748: факт. сумма поступления; реклассификация в финансирование — ЧЕРНОВИК, отклонена; остаётся выручкой",
+  "reclassifications": {
+    "TXN-S1-0015": "capex"
+  },
+  "fx_rates": {
+    "EUR": 1.08
+  }
 }

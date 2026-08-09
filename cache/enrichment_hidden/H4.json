@@ -60,5 +60,12 @@
   "related_parties": [
     "Zhetysu Capital"
   ],
-  "_related_parties_source": "KYC ACC-7504, порог >=20.0%"
+  "_related_parties_source": "KYC ACC-7504, порог >=20.0%",
+  "amount_overrides": {
+    "TXN-H4-0021": 3406215.88
+  },
+  "_accrual_source": "agreed-procedures aff306acae4c: факт. сумма; реклассификация в выручку — ЧЕРНОВИК, отклонена; остаётся финансированием",
+  "fx_rates": {
+    "EUR": 1.08
+  }
 }

@@ -4,5 +4,8 @@
     "Turgai Capital Partners",
     "Kostanay Silo Services"
   ],
-  "_related_parties_source": "KYC ACC-7830, порог >=30.0%"
+  "_related_parties_source": "KYC ACC-7830, порог >=30.0%",
+  "fx_rates": {
+    "EUR": 1.08
+  }
 }

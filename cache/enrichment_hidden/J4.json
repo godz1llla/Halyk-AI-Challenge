@@ -62,5 +62,8 @@
     "TXN-J4-0036": "insurance",
     "TXN-J4-0067": "interest"
   },
-  "_categories_source": "LLM llama-3.3-70b-versatile (кэш, воспроизводимо без ключа)"
+  "_categories_source": "LLM llama-3.3-70b-versatile (кэш, воспроизводимо без ключа)",
+  "fx_rates": {
+    "EUR": 1.08
+  }
 }
