@@ -157,11 +157,12 @@
     "F2": {
       "account": "ACC-7302",
       "6.1": {
-        "kind": "max_single_line",
+        "title": "Quarterly marketing cap",
+        "kind": "quarterly_max",
         "direction": "max",
-        "threshold": 300000,
+        "threshold": 300000.0,
         "metric": {
-          "lines": [
+          "terms": [
             "marketing"
           ]
         }
@@ -196,7 +197,8 @@
         }
       },
       "6.2": {
-        "kind": "ratio",
+        "title": "Insurance cover linked to capex (springing)",
+        "kind": "springing_ratio",
         "direction": "min",
         "threshold": 0.17,
         "metric": {
@@ -205,7 +207,11 @@
           ],
           "denominator": [
             "capex"
-          ]
+          ],
+          "trigger": {
+            "category": "capex",
+            "above": 1500000
+          }
         }
       },
       "6.3": {
@@ -254,22 +260,28 @@
     "G2": {
       "account": "ACC-7402",
       "6.1": {
-        "kind": "max_single_line",
+        "title": "Transfers to unrestricted subs",
+        "kind": "aggregate_max",
         "direction": "max",
-        "threshold": 250000,
+        "threshold": 250000.0,
         "metric": {
-          "lines": [
-            "related_party"
-          ]
-        }
+          "category": "transfers_to_unrestricted_subs"
+        },
+        "note": "best-effort: не идентифицируемо из данных"
       },
       "6.2": {
-        "kind": "aggregate_min",
+        "title": "Minimum liquidity contribution",
+        "kind": "point_in_time_liability",
         "direction": "min",
-        "threshold": 8000000,
+        "threshold": 8000000.0,
         "metric": {
-          "category": "revenue"
-        }
+          "components": [
+            "revenue",
+            "-opex",
+            "financing_inflows"
+          ]
+        },
+        "note": "EBITDA + поступления по финансированию"
       },
       "6.3": {
         "kind": "related_party_abs",
@@ -283,11 +295,12 @@
     "G3": {
       "account": "ACC-7403",
       "6.1": {
+        "title": "Permitted debt basket",
         "kind": "aggregate_max",
         "direction": "max",
-        "threshold": 2500000,
+        "threshold": 2500000.0,
         "metric": {
-          "category": "debt"
+          "category": "financing_inflows"
         }
       },
       "6.2": {
@@ -396,16 +409,12 @@
         }
       },
       "6.2": {
-        "kind": "ratio",
+        "title": "Property rental cap",
+        "kind": "aggregate_max",
         "direction": "max",
-        "threshold": 1.0,
+        "threshold": 1000000.0,
         "metric": {
-          "numerator": [
-            "rent"
-          ],
-          "denominator": [
-            "insurance"
-          ]
+          "category": "rent"
         }
       },
       "6.3": {
